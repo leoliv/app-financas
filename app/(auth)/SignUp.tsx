@@ -1,22 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Background } from "@/components/Background";
+import { Button } from "@/components/Button";
+import { CustomInput } from "@/components/CustomInput";
+import { StyleSheet, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SignUp() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Essa é a pagina de Criar uma conta</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }} edges={["top", "right", "left"]}>
+      <Background>
+        <CustomInput label="Nome" placeholder="Digite seu nome" />
+        <CustomInput label="E-mail" placeholder="Digite seu email" />
+        <CustomInput label="Senha" placeholder="Digite sua senha" />
+        <Button activeOpacity={0.7} label="Registrar" />
+      </Background>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  text: {
-    color: "#610000",
-    fontSize: 20,
-  },
-});
