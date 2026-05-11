@@ -1,9 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
 interface ButtonProps extends TouchableOpacityProps {
   label?: string;
@@ -11,10 +6,8 @@ interface ButtonProps extends TouchableOpacityProps {
 }
 
 export const Button = ({ label, customStyle, ...rest }: ButtonProps) => {
-  const buttonStyle =
-    customStyle === "link" ? styles.link : styles.submitButton;
-  const textStyle =
-    customStyle === "link" ? styles.linkText : styles.submitText;
+  const buttonStyle = customStyle === "link" ? styles.link : styles.submitButton;
+  const textStyle = customStyle === "link" ? styles.linkText : styles.submitText;
   return (
     <TouchableOpacity style={buttonStyle} {...rest}>
       <Text style={textStyle}>{label}</Text>
