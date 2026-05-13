@@ -10,6 +10,8 @@ export default function SignUp() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [msg, setMsg] = useState(true);
+  const [colorError, setColorError] = useState<"#3b3dbf" | "#ff4d4d">("#3b3dbf");
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["top", "right", "left"]}>
       <Background>
@@ -33,9 +35,21 @@ export default function SignUp() {
           placeholder="Digite sua senha"
         />
         <Button
-          onPress={() => signUp({ nome, email, password })}
+          onPress={() => {
+            if (nome === "" || email === "" || password === "") {
+              setMsg(false);
+              setColorError("#ff4d4d");
+              setTimeout(() => {
+                setColorError("#3b3dbf");
+                setMsg(true);
+              }, 3000);
+              return;
+            }
+            signUp({ nome, email, password });
+          }}
           activeOpacity={0.7}
-          label="Registrar"
+          colorError={colorError}
+          label={msg ? "Registrar" : "Tente novamente!"}
         />
       </Background>
     </SafeAreaView>
