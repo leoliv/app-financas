@@ -12,7 +12,7 @@ export default function SignIn() {
         <Image style={styles.img} source={require("@/assets/logo/Logo.png")} />
         <CustomInput label="E-mail" placeholder="Digite seu email" />
         <CustomInput label="Senha" placeholder="Digite sua senha" />
-        <Button activeOpacity={0.7} label="Acessar" />
+        <Button colorError="#3b3dbf" activeOpacity={0.7} label="Acessar" />
         <Button
           activeOpacity={0.7}
           onPress={() => router.push("/SignUp")}

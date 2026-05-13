@@ -8,7 +8,7 @@ type BackgroundProps = {
 export const Background = ({ children }: BackgroundProps) => {
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
+      behavior={Platform.OS === "ios" ? "padding" : "padding"}
       enabled
       style={styles.areaContainer}
     >
